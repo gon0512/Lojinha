@@ -81,6 +81,12 @@
         console.log('Funcionou!')
         listarUsuarios()
         obterUsuarios()
+
+        $('#btnDeletar').on('click', () => {
+            deletarUsuario()
+            $('#deletar').modal('hide')
+        })
+
     })
 
     function listarUsuarios() {
@@ -116,20 +122,6 @@
 
     function deletarUsuario() {
         let opcao = $('#users option:selected').val()
-
-        axios.delete('http://localhost:3000/usuario', {data: {id: opcao}})
-            .then(response => {
-                swal("Tudo certo!", "Usuário deletado com sucesso!", "success")
-                $('#deletar').hide()
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
-
-    document.getElementById('btnDeletar').addEventListener('click', function deletarUsuario() {
-        // e.preventDefault()
-        let opcao = $('#users option:selected').val()
         
         swal({
             title: "Você está certo disso?",
@@ -150,15 +142,15 @@
                     .catch(error => {
                         console.log(error)
                     })
+                $('#tabela tbody').empty()
+                listarUsuarios()
+                obterUsuarios()
             }
             else {
                 swal("Você cancelou essa ação!");
             }
         })
-        $('#tabela tbody').empty()
-        listarUsuarios()
-        $('#deletar').modal('hide')
-    })
+    }
 
 
 </script>
