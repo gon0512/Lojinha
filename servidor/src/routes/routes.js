@@ -7,4 +7,5 @@ module.exports = app => {
     app.route('/usuario')
         .post(controlador.inserirUsuario)
         .delete(controlador.deletarUsuario)
+        .put(controlador.editarUsuario)
 }

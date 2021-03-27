@@ -27,7 +27,19 @@ exports.deletarUsuario = (req, res) => {
     Usuario.destroy({
         where: {id}
     }).then(response => {
-        res.send(response)
+        res.json(response)
+    }).catch(error => {
+        console.log(error)
+    })
+}
+
+exports.editarUsuario = (req, res) => {
+    let {id, nome, email} = req.body
+
+    Usuario.update({nome, email}, {
+        where:{id: id}
+    }).then(response => {
+        res.json(response)
     }).catch(error => {
         console.log(error)
     })

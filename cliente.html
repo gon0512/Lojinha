@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Clientes</title>
+</head>
+<body>
+    <nav class="navbar navbar-success bg-success text-light">
+        <h1 class="m-3">Loja</h1>
+        <ul class="nav justify-content-end">
+            <li class="nav-item"><h6><a href="./index.html" class="nav-link text-light">Cadastro</a></h6></li>
+            <li class="nav-item"><h6><a href="./cliente.html" class="nav-link text-light">Clientes</a></h6></li>
+        </ul>
+    </nav>
+
+    <section class="container">
+        <header>
+            <h1 class="mt-3">Clientes Cadastrados</h1>
+            <h3 class="lead">Listagem completa de clientes cadastrados no sistema</h3>
+            <hr>
+        </header>
+
+        <table class="table table-borderless table-striped mt-3" id="tabela">
+            <thead>
+                <th>Nome</th>
+                <th>Email</th>
+                <div class="row">
+                    <div class="col-12">
+                        <th>Ações</th>
+                    </div>
+                </div>
+            </thead>
+            
+            <tbody>
+
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Modal -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Cliente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" class="form-control">
+            <input type="hidden" id="id">
+            <label for="" class="label-control">Nome</label>
+            <input type="text" class="form-control mb-3" id="nome">
+            <label for="" class="label-control">Email</label>
+            <input type="email" class="form-control mb-3" id="email">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="salvarUsuario" class="btn btn-success">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- /Modal-->
+    
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="./js/script_cliente.js"></script>
+</html>
