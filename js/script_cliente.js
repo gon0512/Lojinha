@@ -14,6 +14,12 @@ $(document).ready(() => {
         editarUsuario()
     })
 
+    $('#sair').on('click', event => {
+        event.preventDefault()
+        console.log('cheguei aqui')
+        efetuarLogout()
+    })
+
 })
 
 function listarUsuarios() {
@@ -34,14 +40,14 @@ function deletarUsuario(botao) {
     
     swal({
         title: "Você está certo disso?",
-        text: "Uma vez deletado, o usuário não poderá ser recuperado",
+        text: "Uma vez deletado, o cliente não poderá ser recuperado",
         icon: "warning",
         buttons: true,
         dangerMode: true,
         })
         .then((willDelete) => {
             if (willDelete) {
-                swal("Feito! O usuário foi deletado com sucesso!", {
+                swal("Feito! O cliente foi deletado com sucesso!", {
                 icon: "success",
                 });
                 axios.delete('http://localhost:3000/usuario', {data: {id: id}})
@@ -85,7 +91,27 @@ function editarUsuario() {
         .catch(error => {
             console.log(error)
         })
+        swal("Feito! Os dados do cliente foram editados com sucesso!", {
+            icon: "success",
+            });
         $('#tabela tbody').empty()
         listarUsuarios()
         $('#modalEditar').modal('hide')
+}
+
+function efetuarLogout() {
+    swal({
+        title: "Você está certo?",
+        text: "Deseja realmente sair do aplicativo?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((logout) => {
+        if (logout) {
+            location.replace('./login.html')
+        } else {
+          swal('Você cancelou a ação!')
+        }
+      });
 }

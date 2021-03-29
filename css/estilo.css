@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0fff0;
+}
+
+#login {
+    position: relative;
+    top: 100px;
+}
+
+@media only screen and(max-width: 375px) {
+    #loginDireita {
+        display: none;
+    }
+
+    #LoginEsquerda {
+        max-width: 300px;
+    }
+
+    #login {
+        max-width: 300px;;
+    }
+}
